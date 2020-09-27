@@ -12,7 +12,8 @@ render() {
                         <div>
                             {
                                 users.map(x =>{
-                                return <User 
+                                return <User
+                                            key = {x.id}
                                             name={x.id}
                                             surname={x.name}/>
                                      
