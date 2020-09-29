@@ -1,9 +1,7 @@
  
-import React, { Component } from 'react'
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-
-import Navbar from './Components/Navbar';
+import AddUser from './Components/AddUser';
 import Users from './Components/Users';
 
 
@@ -15,6 +13,7 @@ import Users from './Components/Users';
       <div>
          <div className="container"> 
          <Users />  
+         <AddUser />
     </div>
       </div>
     )
