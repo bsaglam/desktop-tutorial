@@ -12,7 +12,9 @@ const Animation = posed.div({
 
 class AddUser extends Component {
     state={
-        visible:false
+        visible:false,
+        name:"",
+        surname:""
     }
 
     changeVisibility = (e)=>
@@ -23,8 +25,28 @@ class AddUser extends Component {
             }
         )
     }
+    changeInput = (e) =>
+    {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+            
+    }
+   /* changeName = (e) =>
+    {
+        this.setState({
+            name : e.target.value
+        })
+    }
+
+    changeSurname = (e) =>
+    {
+        this.setState({
+            surname : e.target.value
+        })
+    }*/
     render() {
-        const {visible}=this.state;
+        const {visible,name,surname}=this.state;
         return (
             <div className="col-md-8 mb-4">
                 <button onClick={this.changeVisibility} className="btn btn-dark btn-block mb-2">{visible?"hide form":"show form"}</button>
@@ -38,11 +60,11 @@ class AddUser extends Component {
                     <form>
                         <div className="form-group"></div>
                         <label htmlFor="name">Name</label>
-                        <input className="form-control" type="text" name="name" id="id" placeholder="adınızı girin"></input>
+                        <input className="form-control" type="text" name="name" id="id" placeholder="adınızı girin" value={name} onChange={this.changeInput}></input>
 
                         <div className="form-group"></div>
                         <label htmlFor="surname">Surname</label>
-                        <input className="form-control" type="text" name="surname" id="surname" placeholder="soyadınızı girin"></input>
+                        <input className="form-control" type="text" name="surname" id="surname" placeholder="soyadınızı girin" value={surname} onChange={this.changeInput}></input>
                         <button className="btn btn-danger btn-block">Add User</button>
                     </form>
                     </div>
